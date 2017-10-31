@@ -1,0 +1,485 @@
+body {
+  font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "黑体", Arial, sans-serif;
+}
+li,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  text-align: center;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after,
+.clearfix:before {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+a:focus {
+  outline-style: none !important;
+  -moz-outline-style: none !important;
+}
+.flexBox {
+  display: box;
+  /*（伸缩盒最老版本）*/
+  display: -webkit-box;
+  /* iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* Chrome */
+  display: -moz-box;
+  /* Firefox 19 */
+  display: -ms-flexbox;
+  display: flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.flex-center {
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.flexItem {
+  -webkit-box: auto;
+  -webkit-flex: auto;
+  -ms-flexbox: auto;
+  flex: auto;
+}
+.w10 {
+  width: 10%;
+  height: 100%;
+  float: left;
+}
+.w20 {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+.w25 {
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+.w30 {
+  width: 30%;
+  height: 100%;
+  float: left;
+}
+.w40 {
+  width: 40%;
+  height: 100%;
+  float: left;
+}
+.w50 {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.w60 {
+  width: 60%;
+  height: 100%;
+  float: left;
+}
+.w70 {
+  width: 70%;
+  height: 100%;
+  float: left;
+}
+.w75 {
+  width: 75%;
+  height: 100%;
+  float: left;
+}
+.w80 {
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+.w90 {
+  width: 90%;
+  height: 100%;
+  float: left;
+}
+.w50-offest-5 {
+  float: left;
+  width: 49.5%;
+  width: -moz-calc((50% - 5px));
+  width: -webkit-calc((50% - 5px));
+  width: calc((50% - 5px));
+  height: 100%;
+}
+.w100 {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.pad5A {
+  padding: 5px !important;
+}
+.pad5T {
+  padding-top: 5px !important;
+}
+.pad5R {
+  padding-right: 5px !important;
+}
+.pad5B {
+  padding-bottom: 5px !important;
+}
+.pad5L {
+  padding-left: 5px !important;
+}
+.pad10A {
+  padding: 10px !important;
+}
+.pad10T {
+  padding-top: 10px !important;
+}
+.pad10R {
+  padding-right: 10px !important;
+}
+.pad10B {
+  padding-bottom: 10px !important;
+}
+.pad10L {
+  padding-left: 10px !important;
+}
+.pad15A {
+  padding: 15px !important;
+}
+.pad15T {
+  padding-top: 15px !important;
+}
+.pad15R {
+  padding-right: 15px !important;
+}
+.pad15B {
+  padding-bottom: 15px !important;
+}
+.pad15L {
+  padding-left: 15px !important;
+}
+.pad20A {
+  padding: 20px !important;
+}
+.pad20T {
+  padding-top: 20px !important;
+}
+.pad20R {
+  padding-right: 20px !important;
+}
+.pad20B {
+  padding-bottom: 20px !important;
+}
+.pad20L {
+  padding-left: 20px !important;
+}
+.pad25A {
+  padding: 25px !important;
+}
+.pad25T {
+  padding-top: 25px !important;
+}
+.pad25R {
+  padding-right: 25px !important;
+}
+.pad25B {
+  padding-bottom: 25px !important;
+}
+.pad25L {
+  padding-left: 25px !important;
+}
+.pad45A {
+  padding: 45px !important;
+}
+.pad45T {
+  padding-top: 45px !important;
+}
+.pad45R {
+  padding-right: 45px !important;
+}
+.pad45B {
+  padding-bottom: 45px !important;
+}
+.pad45L {
+  padding-left: 45px !important;
+}
+.pad0A {
+  padding: 0 !important;
+}
+.pad0T {
+  padding-top: 0 !important;
+}
+.pad0R {
+  padding-right: 0 !important;
+}
+.pad0B {
+  padding-bottom: 0 !important;
+}
+.pad0L {
+  padding-left: 0 !important;
+}
+.mrg5A {
+  margin: 5px !important;
+}
+.mrg5T {
+  margin-top: 5px !important;
+}
+.mrg5R {
+  margin-right: 5px !important;
+}
+.mrg5B {
+  margin-bottom: 5px !important;
+}
+.mrg5L {
+  margin-left: 5px !important;
+}
+.mrg10A {
+  margin: 10px !important;
+}
+.mrg10T {
+  margin-top: 10px !important;
+}
+.mrg10R {
+  margin-right: 10px !important;
+}
+.mrg10B {
+  margin-bottom: 10px !important;
+}
+.mrg10L {
+  margin-left: 10px !important;
+}
+.mrg15A {
+  margin: 15px !important;
+}
+.mrg15T {
+  margin-top: 15px !important;
+}
+.mrg15R {
+  margin-right: 15px !important;
+}
+.mrg15B {
+  margin-bottom: 15px !important;
+}
+.mrg15L {
+  margin-left: 15px !important;
+}
+.mrg20A {
+  margin: 20px !important;
+}
+.mrg20T {
+  margin-top: 20px !important;
+}
+.mrg20R {
+  margin-right: 20px !important;
+}
+.mrg20B {
+  margin-bottom: 20px !important;
+}
+.mrg20L {
+  margin-left: 20px !important;
+}
+.mrg25A {
+  margin: 25px !important;
+}
+.mrg25T {
+  margin-top: 25px !important;
+}
+.mrg25R {
+  margin-right: 25px !important;
+}
+.mrg25B {
+  margin-bottom: 25px !important;
+}
+.mrg25L {
+  margin-left: 25px !important;
+}
+.mrg45A {
+  margin: 45px !important;
+}
+.mrg45T {
+  margin-top: 45px !important;
+}
+.mrg45R {
+  margin-right: 45px !important;
+}
+.mrg45B {
+  margin-bottom: 45px !important;
+}
+.mrg45L {
+  margin-left: 45px !important;
+}
+.mrg0A {
+  margin: 0 !important;
+}
+.mrg0T {
+  margin-top: 0 !important;
+}
+.mrg0R {
+  margin-right: 0 !important;
+}
+.mrg0B {
+  margin-bottom: 0 !important;
+}
+.mrg0L {
+  margin-left: 0 !important;
+}
+.font-bold {
+  font-weight: 700 !important;
+}
+.font-normal {
+  font-weight: 400;
+}
+.font-italic {
+  font-style: italic;
+}
+.font-none {
+  font-style: none;
+}
+.center-margin {
+  float: none!important;
+  margin: 0 auto;
+}
+.center-block,
+.container {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.center-vertical {
+  position: relative;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.center-vertical .center-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+.myCheck input[type=checkbox] {
+  position: relative;
+  margin: 0 1px 0 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  -webkit-appearance: none;
+  bottom: 1px;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background-color: #f2f2f2;
+  margin-right: 3px;
+  outline: none;
+}
+.myCheck input[type=checkbox] {
+  border: 1px solid #A3ABB0;
+  background-color: #fff;
+}
+.myCheck input[type=checkbox]:checked {
+  border: 0;
+  background-color: #72afd9;
+}
+.myCheck input[type=checkbox]:checked {
+  background-color: #3498DB;
+}
+.myCheck input[type=checkbox]:checked::before {
+  position: absolute;
+  top: 7px;
+  left: 4px;
+  width: 65%;
+  height: 2px;
+  content: '';
+  -webkit-transform: rotate(135deg);
+  background-color: #fff;
+}
+.myCheck input[type=checkbox]:checked::after {
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  content: '';
+  -webkit-transform: rotate(-135deg);
+  background-color: #fff;
+}
+.myCheck i {
+  vertical-align: sub !important;
+}
+.myCheck label {
+  cursor: pointer;
+}
+.myRadio input[type=radio] {
+  position: relative;
+  margin: 0 1px 0 0;
+  -webkit-user-select: none;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  -webkit-appearance: none;
+  bottom: 2px;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  border-radius: 100%;
+  cursor: pointer;
+  outline: none;
+}
+.myRadio input[type=radio] {
+  border: 1px solid #A3ABB0;
+  background: #ffffff;
+}
+.myRadio input[type=radio]:checked {
+  border: 2px solid rgba(114, 175, 217, 0.5);
+  background-image: none;
+}
+.myRadio input[type=radio]:checked {
+  border: 1px solid #5182E4;
+  background: #5182E4;
+}
+.myRadio input[type=radio]:checked::before {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  display: block;
+  content: '';
+  border-radius: 100%;
+  background-color: #72afd9;
+}
+.myRadio input[type=radio]:checked::before {
+  background-color: #FFF;
+}
+/*-----------------------select2--------------------------*/
+select.mySelect2 + .select2 {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #92C5E7;
+  border-radius: 0;
+  /*margin: 0 10px;*/
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #5D636C;
+}
+.select2.select2-container {
+  width: 100% !important;
+}
+.select2-container--default .select2-selection--multiple {
+  background-color: transparent !important;
+  border: none !important;
+}

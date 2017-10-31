@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="zhangdaren">
+		<meta name="keywords" content="css,arrow,editor,箭头,生成器,前端">
+		<title>CSS Arrow Edtior</title>
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/fix.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<div id="whole">
+			<div class="panel mrg10T">
+				<h2 class="tips mrg25B">快速按照箭头实际大小生成箭头</h2>
+				<div class="content clearfix">
+					<div class="left leftBox">
+						<div class="config">
+							<div class="row">
+								<label class="left">Position</label>
+								<div class="clearfix left">
+									<div class="myRadio left mrg15R">
+										<label>
+									<input type="radio" name="position" data-val="top" checked>
+									<span>Top</span>
+									</label>
+									</div>
+									<div class="myRadio left mrg15R">
+										<label>	<input type="radio" name="position" data-val="right">
+									<span>Right</span></label>
+									</div>
+									<div class="myRadio left mrg15R">
+										<label><input type="radio" name="position" data-val="bottom">
+									<span>Bottom</span></label>
+									</div>
+									<div class="myRadio left">
+										<label><input type="radio" name="position" data-val="left">
+									<span>Left</span></label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<label class="left">Arrow width</label>
+								<div class="clearfix left controlBox">
+									<input type="number" class="form-control" placeholder="Arrow width" value="30" name="arrowWidth" min="0">
+									<span>px</span>
+								</div>
+							</div>
+							<div class="row">
+								<label class="left">Arrow height</label>
+								<div class="clearfix left controlBox">
+									<input type="number" class="form-control" placeholder="Arrow height" value="20" name="arrowHeight" min="0">
+									<span>px</span>
+								</div>
+							</div>
+							<div class="row">
+								<label class="left">Border color</label>
+								<div class="clearfix left controlBox">
+									<input type="text" class="form-control jscolor {onFineChange:'updateArrow()'}" placeholder="Arrow color" value="658ecb">
+								</div>
+							</div>
+							<!--<div class="row">
+								<label class="left">Border width</label>
+								<div class="clearfix left controlBox">
+									<input type="number" class="form-control" placeholder="Border width" value="">
+									<span>px</span>
+								</div>
+							</div>-->
+						</div>
+						<div class="preview">
+							<div class="arrowBox" id="arrowBox">
+								<h1>CSS Arrow Edtior</h1>
+							</div>
+						</div>
+					</div>
+					<div class="right rightBox">
+						<code class="code" id="code">fdsafdsafdsafdsf</code>
+					</div>
+				</div>
+
+				<div class="infoPanel">
+					<p class="font-bold">箭头信息：</p>
+					<p>箭头宽高：<span id="arrowWH">20px * 10px</span></p>
+					<p>箭头占位宽高（含不可见部分，即整个before宽高）：<span id="arrowAllWH">20px * 10px</span></p>
+					<br>
+
+					<p class="font-bold">帮助：</p>
+					<p>Arrow width：代表从设计图里箭头的实际宽度。</p>
+					<p>Arrow height：代表从设计图里箭头的实际高度。</p>
+					<br>
+					<p>部分样式借鉴于
+						<a class="mrg10L" href="http://www.cssarrowplease.com/">www.cssarrowplease.com</a>， 表示感谢！</p>
+				</div>
+
+				<div class="copyRight">code by zhangdaren</div>
+			</div>
+			<a href="http://github.com/hojberg/cssarrowplease" class="fork_me ir">
+				Fork me on Github
+			</a>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jscolor.min.js"></script>
+		<script>
+			//创建style
+			var style = document.createElement("style");
+			document.body.appendChild(style);
+
+			$(function() {
+				$(".controlBox input").on("input propertychange", function() {
+					updateArrow();
+				});
+				$("input[name=position]").on("change", function() {
+					updateArrow();
+				});
+				updateArrow();
+			});
+
+			function updateArrow() {
+				//初始用于css时，需要除以2
+				//这里表示箭头实际宽高度（视测宽高度）
+				var arrowWidth = parseInt($('input[name=arrowWidth]').val());
+				var arrowHeight = parseInt($('input[name=arrowHeight]').val());
+				var arrowPosition = $(".myRadio input:checked").attr("data-val");
+				var arrowColor = $(".jscolor").val();
+
+				//初始css需要的width
+				var realArrowWidth = arrowWidth * 0.5;
+
+				var arrowBoxStyle = '.arrowBox {\n' +
+					'\tbackground: #' + arrowColor + ';\n' +
+					'\tposition: relative;\n' +
+					'}\n';
+
+				var beforeStr = '\tcontent: "";\n' +
+					'\tborder: ' + realArrowWidth + 'px solid transparent;\n';
+
+				var newPos = "";
+				//
+				switch(arrowPosition) {
+					case "top":
+						newPos = "bottom";
+						break;
+					case "left":
+						newPos = "right";
+						break;
+					case "bottom":
+						newPos = "top";
+						break;
+					case "right":
+						newPos = "left";
+						break;
+				}
+				//
+				beforeStr += '\tborder-' + newPos + ': ' + arrowHeight + 'px solid #' + arrowColor + ';\n';
+				beforeStr += '\tposition: absolute;\n';
+
+				beforeStr += '\t' + arrowPosition + ': -' + (realArrowWidth + arrowHeight) + 'px;\n';
+
+				if(newPos === 'top' || newPos === 'bottom') {
+					beforeStr += '\tleft: 50%;\n';
+					beforeStr += '\tmargin-' + 'left' + ': -' + realArrowWidth + 'px;\n';
+				} else {
+					beforeStr += '\ttop: 50%;\n';
+					beforeStr += '\tmargin-' + 'top' + ': -' + realArrowWidth + 'px;\n';
+				}
+
+				//修改style标签
+				var styleStr = arrowBoxStyle + '.arrowBox::before {\n' + beforeStr + '}';
+				style.innerHTML = "";
+				style.innerHTML = styleStr;
+				//
+				//获取箭头宽高信息
+				$("#arrowWH").text(arrowWidth + "px * " + arrowHeight + "px");
+				$("#arrowAllWH").text(arrowWidth + "px * " + (realArrowWidth + arrowHeight) + "px");
+				//更新css代码
+
+				$("#code").text(styleStr);
+			}
+		</script>
+	</body>
+
+</html>
